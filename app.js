@@ -13,6 +13,9 @@ const app = express();
 // adding Helmet to enhance your Rest API's security
 app.use(helmet());
 
+// disable x-powered-by headers.
+app.disable('x-powered-by');
+
 // using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
 
@@ -22,7 +25,7 @@ app.use(cors());
 // adding morgan to log HTTP requests
 app.use(morgan('combined'));
 
-// defining an endpoint to return all ads
+// defining endpoints
 app.get('/', (req, res) => {
   res.send({ status: true });
 });
